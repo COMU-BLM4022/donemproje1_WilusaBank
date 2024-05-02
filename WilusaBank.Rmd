@@ -66,3 +66,16 @@ Zorluklar: Müşteri verilerinin doğru ve güncel tutulması, veri analizi ve m
 Avantajlar: SuiteCRM gibi güçlü bir CRM platformunun kullanılması, müşteri verilerine erişim ve analiz süreçlerinin otomatikleştirilmesi, müşteriye özelleştirilmiş teklifler sunma yeteneği.
 Rakipler ve Avantajlar/Dezavantajlar:
 WİLUSA Bankası'nın gerçek dünya rakipleri diğer bankalar ve finansal kuruluşlardır. Bu rakipler, benzer müşteri verilerine ve pazarlama kaynaklarına sahip olabilirler. Ancak, WILUSA Bankası'nın SuiteCRM gibi güçlü bir CRM platformunu kullanması, veri analizi ve pazarlama stratejilerini geliştirmede bir avantaj sağlayabilir. Dezavantajlar arasında, rakiplerin daha büyük pazarlama bütçelerine veya daha geniş müşteri tabanına sahip olmaları yer alabilir.
+
+## Q4: İyileştirme (Optimizasyon) Stratejisi
+
+Projede R kodu kullanarak yapacağımız veri analizi ile hedefimiz, WİLUSA Bankası'nın müşteri pazarlama stratejilerini optimize etmek ve gelirlerini artırmaktır. Bu doğrultuda, aşağıdaki iyileştirme stratejilerini planlıyoruz:
+
+Müşteri Segmentasyonunu İyileştirme: Veri analizi ve makine öğrenimi tekniklerini kullanarak müşteri segmentasyonunu daha etkili hale getirmeyi planlıyoruz. Müşterileri daha kesin bir şekilde gruplandırarak, her bir segment için daha özelleştirilmiş pazarlama stratejileri oluşturabiliriz. Örneğin, gelir seviyesine, yaş gruplarına veya tercih edilen iletişim kanallarına göre segmentasyon yapabiliriz.
+
+Pazarlama Kampanyalarının Kişiselleştirilmesi: Müşteri segmentasyonunu temel alarak, pazarlama kampanyalarını daha kişiselleştirilmiş hale getirmeyi planlıyoruz. SuiteCRM'den elde ettiğimiz verilere dayanarak, her müşteri segmenti için özel teklifler ve iletişim stratejileri geliştirebiliriz. Bu, müşteri memnuniyetini artırabilir ve vadeli mevduat aboneliklerini teşvik edebilir.
+
+Müşteri Yanıtlarının İyileştirilmesi: Veri analizi sonuçlarına dayanarak, daha önceki pazarlama kampanyalarına müşteri yanıtlarını analiz ederek, hangi tür kampanyaların daha etkili olduğunu belirlemeyi planlıyoruz. Bu bilgiyi kullanarak, gelecekteki pazarlama kampanyalarını daha iyi hedeflemeyi ve müşteri yanıtlarını artırmayı amaçlıyoruz.
+Pazarlama Stratejilerinin Gerçek Zamanlı İzlenmesi: SuiteCRM üzerinden toplanan verileri kullanarak, pazarlama kampanyalarının gerçek zamanlı olarak izlenmesini ve analiz edilmesini planlıyoruz. Bu, pazarlama stratejilerini dinamik olarak ayarlamamıza ve hızla değişen müşteri ihtiyaçlarına yanıt vermemize olanak tanır.
+
+Bu iyileştirme stratejileri, WILUSA Bankası'nın müşteri pazarlama stratejilerini optimize etmek ve gelirlerini artırmak için R kodu kullanarak gerçekleştirilecek veri analizi sırasında sağlanacak faydaları içerir. Bu stratejilerin uygulanması, müşteri memnuniyetini artırabilir, müşteri sadakatini güçlendirebilir ve sonuç olarak bankanın gelirlerini artırabilir.
