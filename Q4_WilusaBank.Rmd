@@ -1,0 +1,84 @@
+---
+title: "Wilusa Bank"
+author: " "
+date: "2024-05-01"
+output: html_document
+---
+
+
+## Q1 : IMS platformunun belirlenmesi
+
+Seçilen IMS platformu: SuiteCRM
+
+Lisansı: SuiteCRM, AGPL (Affero General Public License) altında özgür ve açık kaynaklı bir CRM yazılımıdır.
+
+Kısa tarihçesi: SuiteCRM, SugarCRM'in açık kaynaklı bir çatallaşmasıdır. SugarCRM'in Community Edition sürümünden türetilmiş ve geliştirilmiştir. İlk olarak 2013 yılında piyasaya sürülmüştür.
+
+Kullanıcıya sunduğu özellikler:
+Müşteri ilişkileri yönetimi (CRM) özellikleri: Müşteri bilgileri yönetimi, satış yönetimi, pazarlama yönetimi, müşteri destek yönetimi gibi temel CRM işlevleri.
+
+Kişiselleştirme ve özelleştirme: Kullanıcı arayüzünün kişiselleştirilmesi, formların ve modüllerin özelleştirilmesi.
+Eklenti desteği: Çeşitli eklentiler ve modüllerle genişletilebilirlik.
+Raporlama ve analiz: Veri analizi ve raporlama özellikleri.
+
+Kullanılan yazılım ve teknolojiler: PHP, MySQL, Apache, JavaScript (AngularJS), HTML, CSS gibi web tabanlı teknolojiler.
+
+API: SuiteCRM, RESTful API'lar aracılığıyla entegrasyon ve uygulama geliştirme imkanı sunar. Bu API'lar, kullanıcı, hesap, fırsat, liderlik, toplantılar, notlar, ürünler gibi temel nesnelerin veri erişimini ve yönetimini sağlar.
+
+Platform seçimimizde rol oynayan sebepler:
+Özgür ve açık kaynaklı olması: SuiteCRM'in özgür yazılım lisansı altında olması, geliştirme ve özelleştirme açısından esneklik sağlayan bir platformdur.
+
+Daha önceki deneyimler: SugarCRM veya diğer CRM platformlarıyla çalışma deneyimine sahip olmak, SuiteCRM'i tercih etmede etkili oldu.
+
+Popülerlik: SuiteCRM, SugarCRM'in popüler bir açık kaynaklı alternatifi olması nedeniyle geniş bir kullanıcı kitlesine sahiptir ve aktif bir topluluk tarafından desteklenmektedir. Bu da platformun geliştirilmesi ve güncellenmesi için önemli bir avantajdır.
+SuiteCRM, CRM alanında kapsamlı özelliklere sahip, açık kaynaklı bir platform olması ve kullanıcı dostu arayüzüyle dikkat çeken bir seçenektir. Bu nedenle, analiz projemiz için SuiteCRM'i tercih etmeyi uygun gördük.
+
+
+
+## Q2: Dataset tanımı Kaggle - Bank Customer Information and Marketing Response
+
+Bu veri seti, banka müşterilerinin demografik ve finansal özelliklerini içerirken, aynı zamanda pazarlama kampanyalarına verdikleri yanıtları da içermektedir. Özellikler arasında müşterinin yaş, cinsiyet, eğitim seviyesi, mesleği, ev durumu, kredi kartı varlığı, hesap bakiyesi, son iletişim türü, iletişim sıklığı, kampanya başına geçen süre ve daha fazlası bulunmaktadır.
+
+Verinin Üretim/Toplanma Şekli: Veri seti, bir bankanın müşteri verileri üzerinde gerçekleştirilen bir araştırma sonucunda oluşturulmuştur. Müşterilerin kişisel bilgileri gizliliği korunarak toplanmıştır.
+
+Veri Formatı: Veri seti, CSV (Comma Separated Values) formatında sunulmaktadır.
+
+Boyutu: Toplam 41.188 gözlem ve 21 değişken içermektedir.
+
+IMS'e İthalat Planı: SuiteCRM'e veri setini içe aktarırken, öncelikle CSV dosyasını SuiteCRM'e uygun bir formata dönüştürmek gerekecektir. SuiteCRM, genellikle CSV veya Excel dosyalarını içe aktarma yeteneğine sahiptir, bu nedenle veri setini bu formatlara dönüştürmek sorunsuz olacaktır. Daha sonra, SuiteCRM'in yönetim panelinden, veri setini içe aktarma seçeneğini kullanarak veriyi IMS'e yüklemek mümkündür.İzlemeyi planladığımız yol bu şekildedir.
+
+Veriyi R ile Çekerken Uygulanacak Plan: IMS içindeki veriyi R ile çekmek için, SuiteCRM'in RESTful API'larını kullanmayı planlıyoruz. SuiteCRM'in sunduğu RESTful API'lar aracılığıyla, R programlama dili üzerinden IMS'deki veriye erişim sağlayabileceğiz. Bu API'lar, HTTP istekleri aracılığıyla veriye erişim sağlamak için kullanılabilir. Örneğin, R'ın httr paketiyle API'ye istek gönderebilir ve veriyi çekebiliriz. Bu şekilde, SuiteCRM'deki güncel verilerle R üzerinde analizler yapabiliriz.
+
+
+## Q3: İş Tanımı
+
+Kuruluş Tanımı: WILUSA Bankası, bir banka müşteri pazarlama analizi gerçekleştirmek için SuiteCRM platformunu kullanmaktadır. WİLUSA Bankası, müşteri tabanını genişletmek, müşteri memnuniyetini artırmak ve gelirleri artırmak amacıyla veri analizi ve pazarlama stratejileri geliştirmeyi hedeflemektedir.Bu doğrultuda, SuiteCRM'in sunduğu özelliklerden faydalanarak, müşteri ilişkilerini daha etkili bir şekilde yönetmeyi ve pazarlama faaliyetlerini optimize etmeyi amaçlamaktadır.
+
+Aktiviteler ve Rutin Operasyonlar:
+
+Müşteri Verilerinin Toplanması: Banka, müşteri demografik ve finansal verilerini toplamak için SuiteCRM platformunu kullanır.
+Veri Analizi: SuiteCRM üzerinde toplanan müşteri verileri analiz edilir ve pazarlama kampanyaları için kullanılacak değerli bilgiler elde edilir.
+Pazarlama Stratejilerinin Geliştirilmesi: Veri analiz sonuçlarına dayanarak, banka müşteri pazarlama stratejileri geliştirilir ve uygulanır.
+Kampanya Yönetimi: SuiteCRM üzerinden pazarlama kampanyaları yönetilir ve müşterilere özel teklifler sunulur.
+Sonuçların Değerlendirilmesi: Pazarlama kampanyalarının etkinliği izlenir ve analiz edilir. Elde edilen sonuçlar doğrultusunda stratejiler revize edilir.
+Gelir Modeli: WİLUSA Bankası, müşteri tabanını genişleterek ve müşteri memnuniyetini artırarak gelirlerini artırmayı hedefler. Bu, vadeli mevduat aboneliklerini artırarak, kredi ürünlerinin satışını artırarak ve müşterilere özel teklifler sunarak gerçekleştirilir.
+
+Zorluklar ve Avantajlar:
+
+Zorluklar: Müşteri verilerinin doğru ve güncel tutulması, veri analizi ve modelleme süreçlerinin karmaşıklığı, rekabetçi bir pazarda etkili pazarlama stratejilerinin geliştirilmesi.
+Avantajlar: SuiteCRM gibi güçlü bir CRM platformunun kullanılması, müşteri verilerine erişim ve analiz süreçlerinin otomatikleştirilmesi, müşteriye özelleştirilmiş teklifler sunma yeteneği.
+Rakipler ve Avantajlar/Dezavantajlar:
+WİLUSA Bankası'nın gerçek dünya rakipleri diğer bankalar ve finansal kuruluşlardır. Bu rakipler, benzer müşteri verilerine ve pazarlama kaynaklarına sahip olabilirler. Ancak, WILUSA Bankası'nın SuiteCRM gibi güçlü bir CRM platformunu kullanması, veri analizi ve pazarlama stratejilerini geliştirmede bir avantaj sağlayabilir. Dezavantajlar arasında, rakiplerin daha büyük pazarlama bütçelerine veya daha geniş müşteri tabanına sahip olmaları yer alabilir.
+
+## Q4: İyileştirme (Optimizasyon) Stratejisi
+
+Projede R kodu kullanarak yapacağımız veri analizi ile hedefimiz, WİLUSA Bankası'nın müşteri pazarlama stratejilerini optimize etmek ve gelirlerini artırmaktır. Bu doğrultuda, aşağıdaki iyileştirme stratejilerini planlıyoruz:
+
+Müşteri Segmentasyonunu İyileştirme: Veri analizi ve makine öğrenimi tekniklerini kullanarak müşteri segmentasyonunu daha etkili hale getirmeyi planlıyoruz. Müşterileri daha kesin bir şekilde gruplandırarak, her bir segment için daha özelleştirilmiş pazarlama stratejileri oluşturabiliriz. Örneğin, gelir seviyesine, yaş gruplarına veya tercih edilen iletişim kanallarına göre segmentasyon yapabiliriz.
+
+Pazarlama Kampanyalarının Kişiselleştirilmesi: Müşteri segmentasyonunu temel alarak, pazarlama kampanyalarını daha kişiselleştirilmiş hale getirmeyi planlıyoruz. SuiteCRM'den elde ettiğimiz verilere dayanarak, her müşteri segmenti için özel teklifler ve iletişim stratejileri geliştirebiliriz. Bu, müşteri memnuniyetini artırabilir ve vadeli mevduat aboneliklerini teşvik edebilir.
+
+Müşteri Yanıtlarının İyileştirilmesi: Veri analizi sonuçlarına dayanarak, daha önceki pazarlama kampanyalarına müşteri yanıtlarını analiz ederek, hangi tür kampanyaların daha etkili olduğunu belirlemeyi planlıyoruz. Bu bilgiyi kullanarak, gelecekteki pazarlama kampanyalarını daha iyi hedeflemeyi ve müşteri yanıtlarını artırmayı amaçlıyoruz.
+Pazarlama Stratejilerinin Gerçek Zamanlı İzlenmesi: SuiteCRM üzerinden toplanan verileri kullanarak, pazarlama kampanyalarının gerçek zamanlı olarak izlenmesini ve analiz edilmesini planlıyoruz. Bu, pazarlama stratejilerini dinamik olarak ayarlamamıza ve hızla değişen müşteri ihtiyaçlarına yanıt vermemize olanak tanır.
+
+Bu iyileştirme stratejileri, WILUSA Bankası'nın müşteri pazarlama stratejilerini optimize etmek ve gelirlerini artırmak için R kodu kullanarak gerçekleştirilecek veri analizi sırasında sağlanacak faydaları içerir. Bu stratejilerin uygulanması, müşteri memnuniyetini artırabilir, müşteri sadakatini güçlendirebilir ve sonuç olarak bankanın gelirlerini artırabilir.
