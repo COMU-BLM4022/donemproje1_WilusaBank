@@ -32,3 +32,17 @@ Daha önceki deneyimler: SugarCRM veya diğer CRM platformlarıyla çalışma de
 
 Popülerlik: SuiteCRM, SugarCRM'in popüler bir açık kaynaklı alternatifi olması nedeniyle geniş bir kullanıcı kitlesine sahiptir ve aktif bir topluluk tarafından desteklenmektedir. Bu da platformun geliştirilmesi ve güncellenmesi için önemli bir avantajdır.
 SuiteCRM, CRM alanında kapsamlı özelliklere sahip, açık kaynaklı bir platform olması ve kullanıcı dostu arayüzüyle dikkat çeken bir seçenektir. Bu nedenle, analiz projemiz için SuiteCRM'i tercih etmeyi uygun gördük.
+
+## Q2: Dataset tanımı Kaggle - Bank Customer Information and Marketing Response
+
+Bu veri seti, banka müşterilerinin demografik ve finansal özelliklerini içerirken, aynı zamanda pazarlama kampanyalarına verdikleri yanıtları da içermektedir. Özellikler arasında müşterinin yaş, cinsiyet, eğitim seviyesi, mesleği, ev durumu, kredi kartı varlığı, hesap bakiyesi, son iletişim türü, iletişim sıklığı, kampanya başına geçen süre ve daha fazlası bulunmaktadır.
+
+Verinin Üretim/Toplanma Şekli: Veri seti, bir bankanın müşteri verileri üzerinde gerçekleştirilen bir araştırma sonucunda oluşturulmuştur. Müşterilerin kişisel bilgileri gizliliği korunarak toplanmıştır.
+
+Veri Formatı: Veri seti, CSV (Comma Separated Values) formatında sunulmaktadır.
+
+Boyutu: Toplam 41.188 gözlem ve 21 değişken içermektedir.
+
+IMS'e İthalat Planı: SuiteCRM'e veri setini içe aktarırken, öncelikle CSV dosyasını SuiteCRM'e uygun bir formata dönüştürmek gerekecektir. SuiteCRM, genellikle CSV veya Excel dosyalarını içe aktarma yeteneğine sahiptir, bu nedenle veri setini bu formatlara dönüştürmek sorunsuz olacaktır. Daha sonra, SuiteCRM'in yönetim panelinden, veri setini içe aktarma seçeneğini kullanarak veriyi IMS'e yüklemek mümkündür.İzlemeyi planladığımız yol bu şekildedir.
+
+Veriyi R ile Çekerken Uygulanacak Plan: IMS içindeki veriyi R ile çekmek için, SuiteCRM'in RESTful API'larını kullanmayı planlıyoruz. SuiteCRM'in sunduğu RESTful API'lar aracılığıyla, R programlama dili üzerinden IMS'deki veriye erişim sağlayabileceğiz. Bu API'lar, HTTP istekleri aracılığıyla veriye erişim sağlamak için kullanılabilir. Örneğin, R'ın httr paketiyle API'ye istek gönderebilir ve veriyi çekebiliriz. Bu şekilde, SuiteCRM'deki güncel verilerle R üzerinde analizler yapabiliriz.
