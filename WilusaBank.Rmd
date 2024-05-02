@@ -46,3 +46,23 @@ Boyutu: Toplam 41.188 gözlem ve 21 değişken içermektedir.
 IMS'e İthalat Planı: SuiteCRM'e veri setini içe aktarırken, öncelikle CSV dosyasını SuiteCRM'e uygun bir formata dönüştürmek gerekecektir. SuiteCRM, genellikle CSV veya Excel dosyalarını içe aktarma yeteneğine sahiptir, bu nedenle veri setini bu formatlara dönüştürmek sorunsuz olacaktır. Daha sonra, SuiteCRM'in yönetim panelinden, veri setini içe aktarma seçeneğini kullanarak veriyi IMS'e yüklemek mümkündür.İzlemeyi planladığımız yol bu şekildedir.
 
 Veriyi R ile Çekerken Uygulanacak Plan: IMS içindeki veriyi R ile çekmek için, SuiteCRM'in RESTful API'larını kullanmayı planlıyoruz. SuiteCRM'in sunduğu RESTful API'lar aracılığıyla, R programlama dili üzerinden IMS'deki veriye erişim sağlayabileceğiz. Bu API'lar, HTTP istekleri aracılığıyla veriye erişim sağlamak için kullanılabilir. Örneğin, R'ın httr paketiyle API'ye istek gönderebilir ve veriyi çekebiliriz. Bu şekilde, SuiteCRM'deki güncel verilerle R üzerinde analizler yapabiliriz.
+
+## Q3: İş Tanımı
+
+Kuruluş Tanımı: WILUSA Bankası, bir banka müşteri pazarlama analizi gerçekleştirmek için SuiteCRM platformunu kullanmaktadır. WİLUSA Bankası, müşteri tabanını genişletmek, müşteri memnuniyetini artırmak ve gelirleri artırmak amacıyla veri analizi ve pazarlama stratejileri geliştirmeyi hedeflemektedir.Bu doğrultuda, SuiteCRM'in sunduğu özelliklerden faydalanarak, müşteri ilişkilerini daha etkili bir şekilde yönetmeyi ve pazarlama faaliyetlerini optimize etmeyi amaçlamaktadır.
+
+Aktiviteler ve Rutin Operasyonlar:
+
+Müşteri Verilerinin Toplanması: Banka, müşteri demografik ve finansal verilerini toplamak için SuiteCRM platformunu kullanır.
+Veri Analizi: SuiteCRM üzerinde toplanan müşteri verileri analiz edilir ve pazarlama kampanyaları için kullanılacak değerli bilgiler elde edilir.
+Pazarlama Stratejilerinin Geliştirilmesi: Veri analiz sonuçlarına dayanarak, banka müşteri pazarlama stratejileri geliştirilir ve uygulanır.
+Kampanya Yönetimi: SuiteCRM üzerinden pazarlama kampanyaları yönetilir ve müşterilere özel teklifler sunulur.
+Sonuçların Değerlendirilmesi: Pazarlama kampanyalarının etkinliği izlenir ve analiz edilir. Elde edilen sonuçlar doğrultusunda stratejiler revize edilir.
+Gelir Modeli: WİLUSA Bankası, müşteri tabanını genişleterek ve müşteri memnuniyetini artırarak gelirlerini artırmayı hedefler. Bu, vadeli mevduat aboneliklerini artırarak, kredi ürünlerinin satışını artırarak ve müşterilere özel teklifler sunarak gerçekleştirilir.
+
+Zorluklar ve Avantajlar:
+
+Zorluklar: Müşteri verilerinin doğru ve güncel tutulması, veri analizi ve modelleme süreçlerinin karmaşıklığı, rekabetçi bir pazarda etkili pazarlama stratejilerinin geliştirilmesi.
+Avantajlar: SuiteCRM gibi güçlü bir CRM platformunun kullanılması, müşteri verilerine erişim ve analiz süreçlerinin otomatikleştirilmesi, müşteriye özelleştirilmiş teklifler sunma yeteneği.
+Rakipler ve Avantajlar/Dezavantajlar:
+WİLUSA Bankası'nın gerçek dünya rakipleri diğer bankalar ve finansal kuruluşlardır. Bu rakipler, benzer müşteri verilerine ve pazarlama kaynaklarına sahip olabilirler. Ancak, WILUSA Bankası'nın SuiteCRM gibi güçlü bir CRM platformunu kullanması, veri analizi ve pazarlama stratejilerini geliştirmede bir avantaj sağlayabilir. Dezavantajlar arasında, rakiplerin daha büyük pazarlama bütçelerine veya daha geniş müşteri tabanına sahip olmaları yer alabilir.
