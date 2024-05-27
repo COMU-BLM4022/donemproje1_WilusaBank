@@ -15,4 +15,38 @@ SuiteCRM platformu, WILUSA Bankası'nın iş süreçlerinde şu özelliklerden y
 
 Bu özellikler, WILUSA Bankası'nın müşteri ilişkilerini daha etkili bir şekilde yönetmesine ve pazarlama faaliyetlerini optimize etmesine olanak tanır. SuiteCRM'in sunduğu otomatikleştirilmiş süreçler ve gelişmiş analiz araçları, müşteri verilerinin doğru ve güncel tutulmasını, veri analiz süreçlerinin verimliliğini artırır ve rekabetçi pazarda daha etkili pazarlama stratejileri geliştirilmesine yardımcı olur.
 
+**Q2: İş problemini çözmede kullanılacak data seti**
+Kullandığımız veriyi bulduğumuz kaynak : _https://www.kaggle.com/_
+Verisetinin linki : _https://www.kaggle.com/datasets/zain280/bank-customer-information-and-marketing-response_
+
+Veri Formatı: Veri seti, CSV (Comma Separated Values) formatında sunulmaktadır.
+
+Boyutu: Toplam 41.188 gözlem ve 21 değişken içermektedir.
+
+Bu veri kümesi, banka müşterileri ve onların pazarlama kampanyalarına verdikleri yanıtlar hakkında bilgiler içerir. Veri seti müşterilerin yaş, iş, medeni durum, eğitim düzeyi, hesap bakiyesi gibi demografik ve finansal özelliklerini içeriyor. Ayrıca, vadeli mevduata abone olup olmadıkları (evet/hayır) ve pazarlama kampanyasının sonucu (başarı/başarısızlık) gibi pazarlama kampanyalarına verdikleri yanıtlara ilişkin bilgileri de içerir.
+
+Veri kümesi, bir müşterinin vadeli mevduata abone olma kararını etkileyen faktörleri ve pazarlama kampanyalarının etkinliğini anlamaya yardımcı olmayı amaçlamaktadır.
+
+_Ana Özellikler:_
+Demografik bilgiler (age, job, marital status, education level)
+
+Finansal bilgiler (account balance, housing loan, personal loan)
+
+Pazarlama kampanyası bilgileri (campaign duration, number of contacts, outcome)
+
+Pazarlama kampanyasına yanıt (subscription to term deposit, yes/no)
+
+_Hedef Değişkeni_:
+
+y (vadeli mevduat aboneliği, evet/hayır)
+
+Örnek Sayısı:
+
+5 (verilen örnekte)
+
+_Nitelik Sayısı_:
+
+16 (hedef değişken dahil)
+
+Kullanılan veri seti aynıdır; sadece SuiteCRM platformunun zorunlu kıldığı "Name" sütununun eklenmesi gibi küçük bir değişiklik yapılmıştır. Bu sütun, müşteri verilerinin doğru bir şekilde yönetilmesi ve analiz edilmesi için gereklidir.
     
