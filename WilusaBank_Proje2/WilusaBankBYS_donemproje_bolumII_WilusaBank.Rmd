@@ -261,4 +261,7 @@ ggplot(dataset, aes(x = age)) +
   theme_minimal()
 ```
 
-    
+**Q4: Veri setinin BYS platformuna ihtali:**
+
+
+SuiteCRM ve MariaDB imajlarını Docker üzerine indirdik ve Docker dizini altında bir Docker Compose dosyası oluşturduk, böylece SuiteCRM ile MariaDB'nin birlikte çalışmasını sağladık. Daha sonra, CSV formatlı veri setimizi SuiteCRM üzerindeki mevcut modüllere yüklemeye çalıştık, ancak verimizin bu hazır modüllere uygun olmadığını fark ettik. Bu nedenle, veri setimize uygun yeni bir modül oluşturduk ve bu modül aracılığıyla veri setimizi SuiteCRM platformuna yükledik. SuiteCRM platformuyla REST API aracılığıyla bağlantı kurduk, ancak CSV ve XML formatındaki veriyi çekmek için çeşitli yöntemler denememize rağmen başarılı olamadık. Bu nedenle, geri kalan süreci, ön işleme ve analiz ettiğimiz veri seti ile devam ettirdik.
