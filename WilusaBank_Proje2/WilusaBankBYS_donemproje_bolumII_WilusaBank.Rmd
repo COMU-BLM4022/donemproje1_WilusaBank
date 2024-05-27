@@ -265,3 +265,166 @@ ggplot(dataset, aes(x = age)) +
 
 
 SuiteCRM ve MariaDB imajlarını Docker üzerine indirdik ve Docker dizini altında bir Docker Compose dosyası oluşturduk, böylece SuiteCRM ile MariaDB'nin birlikte çalışmasını sağladık. Daha sonra, CSV formatlı veri setimizi SuiteCRM üzerindeki mevcut modüllere yüklemeye çalıştık, ancak verimizin bu hazır modüllere uygun olmadığını fark ettik. Bu nedenle, veri setimize uygun yeni bir modül oluşturduk ve bu modül aracılığıyla veri setimizi SuiteCRM platformuna yükledik. SuiteCRM platformuyla REST API aracılığıyla bağlantı kurduk, ancak CSV ve XML formatındaki veriyi çekmek için çeşitli yöntemler denememize rağmen başarılı olamadık. Bu nedenle, geri kalan süreci, ön işleme ve analiz ettiğimiz veri seti ile devam ettirdik.
+
+**Q5 : Yapılması planlanan veri analizi**
+
+-Veri analiz kısmında müşterilerin ev sahibi olup olmadıkları ve bakiye durumlarına göre kampanya tekliflerine verdikleri cevapları analiz edeceğiz. Amacımız, müşterilerin bu özelliklerine göre kampanya yanıtlarının nasıl değiştiğini anlamak ve kampanya tekliflerine daha fazla olumlu yanıt almak için stratejiler geliştirmektir. Bu süreçte, veri yapısını inceleyeceğiz, ev sahipliği ve bakiye durumlarına göre kampanya yanıtlarını analiz edeceğiz ve bu analizlerden elde edilen sonuçları sayısal, tablosal ve grafiksel olarak sunacağız.
+
+*Yaş ve hesap bakiyesi arasındaki ilişkiyi görselleştirmek için bir saçılma diyagramı:*
+
+```{r echo=FALSE}
+# Yaş ve hesap bakiyesi arasındaki ilişkiyi görselleştirmek için bir saçılma diyagramı (scatter plot) oluşturulmuştur.
+
+library(ggplot2)
+
+# Saçılma diyagramı oluşturulur
+ggplot(dataset, aes(x = age, y = balance)) +
+  geom_point() +
+  labs(title = "Yaş ve Hesap Bakiyesi Arasındaki İlişki",
+       x = "Yaş",
+       y = "Hesap Bakiyesi") +
+  theme_minimal()
+```
+Problemler:
+
+-Yaşla hesap bakiyesi arasında belirgin bir korelasyon olmayabilir.
+
+-Belirli yaş gruplarında hesap bakiyelerinin aşırı değişkenlik göstermesi.
+
+Çözüm Önerileri:
+
+-Yaş gruplarını kategorize ederek (örneğin 20-30, 31-40 gibi) daha net bir analiz yapmak
+
+-Anomalileri ve aşırı uç değerleri belirlemek ve bunların nedenlerini araştırmak
+
+
+
+
+*Yaşa göre kredi durumu bar grafiği:*
+
+```{r echo=FALSE}
+# Kredi durumu kategorik değişkene çevrilir
+dataset$loan <- as.factor(dataset$loan)
+
+# Yaşa göre kredi durumu bar grafiği
+ggplot(dataset, aes(x = age, fill = loan)) +
+  geom_bar(position = "dodge") +
+  labs(title = "Yasa Göre Kredi Durumu",
+       x = "Yaş",
+       y = "Kredi Verilen Kişi Sayısı") +
+  theme_minimal()
+```
+
+Problemler:
+
+-Belirli yaş gruplarının kredi durumunda olumsuz bir eğilim göstermesi.
+
+-Genç veya yaşlı müşterilerde kredi reddedilme oranlarının yüksek olması.
+
+Çözüm Önerileri:
+
+-Kredi politikalarını gözden geçirerek daha genç veya daha yaşlı müşteriler için uygun koşullar oluşturmak
+
+-Kredi başvurusu sırasında ek destek ve eğitim programları sunmak
+
+-Kredi değerlendirme kriterlerini yaş gruplarına göre optimize etmek olabilir.
+
+
+
+*Müşterilerin Ev Sahibi Olup Olmadıklarına Göre Bakiyelerini Analiz Etme:*
+```{r echo=FALSE}
+# Müşterilerin ev sahibi olup olmadıklarına göre gruplandırarak bakiyelerini analiz edelim
+home_ownership_balance <- dataset %>%
+  group_by(housing) %>%
+  summarise(mean_balance = mean(balance, na.rm = TRUE),
+            median_balance = median(balance, na.rm = TRUE),
+            sd_balance = sd(balance, na.rm = TRUE))
+
+print(home_ownership_balance)
+
+# Ev sahibi olup olmamaya göre bakiyeleri görselleştirelim
+ggplot(dataset, aes(x = housing, y = balance)) +
+  geom_boxplot() +
+  labs(title = "Müşterilerin Ev Sahibi Olup Olmamalarına Göre Bakiyeleri",
+       x = "Ev Sahipliği Durumu",
+       y = "Bakiye")
+```
+Problemler:
+
+-Ev sahibi olan ve olmayan müşteriler arasında belirgin bir bakiyesel dengesizlik.
+
+-Ev sahibi olmayan müşterilerin finansal durumlarının zayıf olması.
+
+Çözüm Önerileri:
+
+-Ev sahibi olmayan müşterilere özel tasarruf ve yatırım planları sunmak
+
+-Ev sahibi müşterilere yönelik daha yüksek bakiyeli hesaplar veya kredi ürünleri geliştirmek
+
+-Müşteri ilişkileri yönetimi (CRM) kullanarak ev sahibi olmayan müşterilerin ihtiyaçlarına yönelik çözümler sunmak olabilir.
+
+
+*Kampanya Tekliflerine Verdikleri Cevapları İnceleme:*
+```{r echo=FALSE}
+# Kampanya tekliflerine verilen cevapları inceleyelim
+campaign_response <- dataset %>%
+  group_by(y) %>%
+  summarise(count = n())
+
+print(campaign_response)
+
+# Kampanya tekliflerine verilen cevapları görselleştirelim
+ggplot(dataset, aes(x = y)) +
+  geom_bar() +
+  labs(title = "Kampanya Tekliflerine Verilen Cevaplar",
+       x = "Kampanya Yanıtı",
+       y = "Adet")
+```
+Problemler:
+
+-Kampanya tekliflerine düşük katılım oranları.
+
+-Belirli müşteri segmentlerinde kampanyaların etkisiz olması.
+
+Çözüm Önerileri:
+
+-Kampanya tekliflerini müşteri segmentlerine göre özelleştirmek
+
+-Kampanyaların zamanlamasını ve içeriğini optimize etmek
+
+-Müşterilerin kampanya tekliflerine olan yanıtlarını analiz ederek, hangi tür kampanyaların daha etkili olduğunu belirlemek olabilir.
+
+
+*Kampanya Tekliflerine Olumlu Yanıtlar Oluşturmak İçin Analiz Yapmak:*
+```{r echo=FALSE}
+# Olumlu yanıt (y = 'yes') veren müşterilerin özelliklerini analiz edelim
+positive_response <- dataset %>%
+  filter(y == "yes")
+
+# Ev sahipliği ve bakiye durumlarına göre olumlu yanıt oranını hesaplayalım
+positive_response_rate <- dataset %>%
+  group_by(housing) %>%
+  summarise(positive_rate = mean(y == "yes", na.rm = TRUE))
+
+print(positive_response_rate)
+
+# Olumlu yanıtları görselleştirelim
+ggplot(data, aes(x = housing, fill = y)) +
+  geom_bar(position = "fill") +
+  labs(title = "Ev Sahipliği ve Kampanya Yanıtları",
+       x = "Ev Sahipliği Durumu",
+       y = "Oran")
+```
+Problemler:
+
+-Kampanyalara olumsuz yanıt veren müşterilerin sayısının yüksek olması.
+
+-Kampanya tekliflerinin müşteri beklentilerini karşılamaması.
+
+Çözüm Önerileri:
+
+-Olumsuz yanıtların nedenlerini belirlemek için müşteri geri bildirimlerini toplamak ve analiz etmek
+
+-Müşteri memnuniyetini artıracak şekilde kampanya tekliflerini yeniden yapılandırmak
+
+-Test ve analizler yaparak kampanyaların etkinliğini sürekli iyileştirmek (A/B testleri, müşteri anketleri vs.) olabilir.
