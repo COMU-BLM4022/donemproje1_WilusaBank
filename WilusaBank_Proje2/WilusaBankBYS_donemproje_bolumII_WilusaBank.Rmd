@@ -1,0 +1,18 @@
+---
+title: "“Bilgi Yönetim Sistemleri - Bitirme Projesi Rapor : Esmanur Hurma 190401002 - Oğuz Kortun 200401099 - Fatmanur Ömerli 190401062 - Ceyda İncekara 210401008 - Sena Süyün 190401018 "
+output: html_notebook
+---
+**Q1: İş Probleminin Tanımı**
+
+WILUSA Bankası, müşteri tabanını genişletmek, müşteri memnuniyetini artırmak ve gelirlerini artırmak amacıyla bir müşteri pazarlama analizi gerçekleştirmektedir. Bu hedeflere ulaşmak için SuiteCRM platformunu kullanarak, müşteri verilerini toplamak, analiz etmek ve pazarlama stratejileri geliştirmek istemektedir. SuiteCRM, kullanıcı dostu arayüzü ve güçlü veri analizi özellikleriyle, müşteri ilişkilerini yönetmek ve pazarlama kampanyalarını optimize etmek için ideal bir araçtır.  Banka, SuiteCRM'in müşteri veri toplama, analiz ve kampanya yönetimi özelliklerini kullanarak, daha etkili ve özelleştirilmiş pazarlama stratejileri oluşturmayı planlamaktadır. Bu süreçte karşılaşılan zorluklar arasında müşteri verilerinin doğruluğunu ve güncelliğini sağlamak, veri analiz süreçlerinin karmaşıklığı ve rekabetçi pazarda etkili stratejiler geliştirmek yer almaktadır. Ancak, SuiteCRM'in sunduğu avantajlar ve otomatikleştirilmiş analiz süreçleri, bu zorlukların üstesinden gelmede bankaya önemli faydalar sağlayacaktır.
+
+SuiteCRM platformu, WILUSA Bankası'nın iş süreçlerinde şu özelliklerden yararlanacaktır:
+-Müşteri Verilerinin Toplanması: SuiteCRM, müşteri demografik ve finansal verilerinin kolayca toplanmasını ve merkezi bir veri tabanında saklanmasını sağlar.
+-Veri Analizi: Platform, toplanan verilerin analiz edilmesi için gelişmiş araçlar sunar. Bu araçlar, pazarlama kampanyaları için değerli bilgiler elde edilmesini sağlar.
+-Pazarlama Stratejilerinin Geliştirilmesi: SuiteCRM, analiz edilen veriler ışığında etkili pazarlama stratejilerinin geliştirilmesine yardımcı olur.
+-Kampanya Yönetimi: Pazarlama kampanyalarının yönetimi ve müşterilere özel teklifler sunulması SuiteCRM üzerinden gerçekleştirilir.
+-Sonuçların Değerlendirilmesi: Pazarlama kampanyalarının etkinliği izlenir ve analiz edilir. SuiteCRM, bu süreçleri otomatikleştirerek stratejilerin revize edilmesini kolaylaştırır.
+
+Bu özellikler, WILUSA Bankası'nın müşteri ilişkilerini daha etkili bir şekilde yönetmesine ve pazarlama faaliyetlerini optimize etmesine olanak tanır. SuiteCRM'in sunduğu otomatikleştirilmiş süreçler ve gelişmiş analiz araçları, müşteri verilerinin doğru ve güncel tutulmasını, veri analiz süreçlerinin verimliliğini artırır ve rekabetçi pazarda daha etkili pazarlama stratejileri geliştirilmesine yardımcı olur.
+
+    
