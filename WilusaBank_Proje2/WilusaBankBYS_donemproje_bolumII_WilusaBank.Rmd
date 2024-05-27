@@ -49,4 +49,216 @@ _Nitelik Sayısı_:
 16 (hedef değişken dahil)
 
 Kullanılan veri seti aynıdır; sadece SuiteCRM platformunun zorunlu kıldığı "Name" sütununun eklenmesi gibi küçük bir değişiklik yapılmıştır. Bu sütun, müşteri verilerinin doğru bir şekilde yönetilmesi ve analiz edilmesi için gereklidir.
+
+**Q3: Veri seti keşifsel analizi**
+
+
+*Önemli sütunlar:* "age(numeric)", "job(character)", "balance(numeric)", "housing(character)", "loan(character)", "campaign(numeric)", "y(vadeli mevduata abonelik, evet/hayır,character)"
+*Önemli satırlar:* Anormal değerlere veya eksik verilere sahip olabilecek müşteri profilleri
+
+Veri setinde numaric değere sahip bazı sütunlarda negatif değerler vardı.Bu veriler manasız olduğu için veri ön işleme kısmında bu manasız bilgileri NA değere çevirildi.
+Bu negatif değerler "balance" ve "pdays" sütunlarında mevcuttur.Bu yüzden bu sütunlarda negatif olan değerler "NA" değerine çevirilmiştir. 
+*Ön işleme operasyonları:*
+-Sütunlardaki manasız bilgiler yani negatif değer olanlar NA yapıldı.
+-
+```{r echo=FALSE}
+filename <- "guncel_banka.csv"
+
+library(readr)
+dataset <- read_csv(filename)
+
+# Veriyi kontrol ediyoruz
+head(dataset)
+str(dataset)
+# Veriyi tablo şeklinde aç
+View(dataset)
+# Sadece sayısal değerlere sahip sütunları belirleyin
+numeric_columns <- sapply(dataset, is.numeric)
+
+# Sadece sayısal değerlere sahip sütunlardaki negatif değerlere sahip hücreleri NA yapın
+dataset[numeric_columns][dataset[numeric_columns] < 0] <- NA
+#NEGATİF DEĞERLER NA'YA DÖNÜŞTÜRÜLMÜŞTÜR.
+
+
+```
+*Veri Özetini Çıkarmak*
+
+```{r echo=FALSE}
+summary(dataset)
+
+```
+
+*Veri Kalitesini Göz Önüne Seren Tablo:*
+
+Eksik değerlerin her sütundaki yüzdesini gösteren bir tablo oluşturuldu.
+```{r echo=FALSE}
+# Eksik değerlerin yüzdesi
+missing_percentage <- colSums(is.na(dataset)) / nrow(dataset) * 100
+missing_table <- data.frame(
+  Sutun = names(missing_percentage),
+  EksikDegerYuzdesi = missing_percentage
+)
+
+print("Her sutundaki eksik deger yuzdesi:")
+print(missing_table)
+
+
+
+```
+*Temel Görselleştirmeler:*
+
+Sırası ile
+
+-Histogram
+
+-Kutu Grafik
+
+-Bar Grafik
+
+-Pasta Grafik
+```{r echo=FALSE}
+# Gerekli kütüphaneler
+library(ggplot2)
+print("1. ve 2. grafik, balance degerinin ve bu degerdeki miktar dagilimini gostermektedir.")
+# Histogram
+ggplot(dataset, aes(x=balance)) + geom_histogram(binwidth=500, fill="blue", color="black")
+
+# Kutu Grafik
+ggplot(dataset, aes(y=balance)) + geom_boxplot()
+print("3. ve 4. grafik,farkli meslek gruplarinin dagilimini ve her bir gruptaki kisi sayisini gostermektedir.")
+# Bar Grafik
+ggplot(dataset, aes(x=job)) + geom_bar(fill="blue")
+
+# Pasta Grafik
+job_counts <- table(dataset$job)
+pie(job_counts, main="Job Distribution")
+```
+*İstatistik üretimi*
+-Veri setindeki önemli özellikler için bazı istatistiksel özetler oluşturuldu.
+```{r echo=FALSE}
+# Yaşın ortalamasını ve standart sapmasını hesaplama
+# Yaşın ortalaması hesaplanır
+yas_ortalamasi <- mean(dataset$age)
+print(paste("Yas Ortalamasi:", yas_ortalamasi))
+
+# Yaşın standart sapması hesaplanır
+yas_standart_sapma <- sd(dataset$age)
+print(paste("Yas Standart Sapmasi:", yas_standart_sapma))
+```
+-Çeyrekler Arası Aralık (Interquartile Range, IQR), bir veri setindeki merkezi yayılımı ölçen bir istatistiksel değeridir. IQR, veri setindeki verilerin orta %50'sinin yayılımını gösterir ve genellikle veri setinin merkezi kısmının yayılımını anlamak için kullanılır. Aşırı uç değerlerin etkisini azaltarak merkezi eğilim hakkında bilgi verir.
+
+```{r echo=FALSE}
+# Çeyrekler Arası Aralık (IQR) hesaplama
+numeric_columns <- sapply(dataset, is.numeric)
+iqr_values <- apply(dataset[, numeric_columns], 2, IQR, na.rm = TRUE)
+
+# IQR sonuçlarını bir tablo halinde gösterme
+iqr_table <- data.frame(
+  Degisken = names(iqr_values),
+  IQR = iqr_values
+)
+
+print("Sayisal degiskenlerin Ceyrekler Arasi Aralik (IQR) degerleri:")
+print(iqr_table)
+
+```
+
+
+
+
+*Eksik Değerlerin Kontrolü ve İşlenmesi:*
+```{r echo=FALSE}
+# Eksik değerlerin kontrolü
+sum(is.na(dataset))
+
+# Hangi sütunlarda eksik değer olduğunu görmek
+colSums(is.na(dataset))
+
+
+
+
+```
+
+
+Eksik değerlerin kontrolü ve hangi sütunlarda eksik değer olduğunu görmek:
+
+```{r echo=FALSE}
+# Gerekli kütüphaneyi yükle
+library(dplyr)
+library(tidyr)
+
+# Eksik değere sahip satırları veri setinden sil
+dataset <- dataset %>% drop_na()
+
+# Eksik değerlerin kontrolü (eksik değerlerin kalmadığından emin olmak için)
+sum(is.na(dataset))
+# Hangi sütunlarda eksik değer olduğunu görmek
+colSums(is.na(dataset))
+```
+
+*Kategorik Değişkenlerin Düzenlenmesi:*
+```{r echo=FALSE}
+
+# Kategorik değişkenleri faktöre çevirme
+dataset$job <- as.factor(dataset$job)
+dataset$marital <- as.factor(dataset$marital)
+dataset$education <- as.factor(dataset$education)
+dataset$y <- as.factor(dataset$y)
+
+# Faktör seviyelerini kontrol etme
+levels(dataset$job)
+levels(dataset$marital)
+levels(dataset$education)
+levels(dataset$y)
+
+
+
+```
+
+Kategorik değişkenlerin frekans tablosu:
+
+```{r echo=FALSE}
+
+library(dplyr)
+# Kategorik değişkenlerin frekans tablosu
+categorical_summary <- dataset %>%
+  summarise(
+    Is_Sayisi = n_distinct(job),
+    MedeniDurum_Sayisi = n_distinct(marital),
+    Egitim_Sayisi = n_distinct(education),
+    KrediDurumu_Sayisi = n_distinct(loan)
+  )
+
+print("Kategorik degiskenlerin frekans tablosu:")
+print(categorical_summary)
+```
+*Tablo Oluşturma:*
+
+Veri setinin önemli özelliklerini gösteren bir tablo oluşturuldu. Yaş ve vadeli mevduat aboneliği arasındaki ilişkiyi gösteren  tablo :
+```{r echo=FALSE}
+
+
+
+#Veri setinin önemli özelliklerini gösteren bir tablo oluşturuldu. Yaş ve vadeli mevduat aboneliği arasındaki ilişkiyi gösteren  tablo :
+# Vadeli mevduata abonelik durumuna göre yaş ortalamaları hesaplanır
+yas_ortalamalari <- aggregate(age ~ y, data = dataset, FUN = mean)
+
+# Elde edilen tablo gösterilir
+print(yas_ortalamalari)
+```
+*Grafik oluşturma*
+-Veri setindeki önemli özellikleri görselleştirmek için birkaç grafik oluşturuldu.
+
+Yaş dağılımı histogramı:
+
+```{r echo=FALSE}
+
+
+# Yaş dağılımı histogramı
+ggplot(dataset, aes(x = age)) +
+  geom_histogram(binwidth = 5, fill = "blue", color = "black") +
+  labs(title = "Yaş Dağılımı", x = "Yaş", y = "Frekans") +
+  theme_minimal()
+```
+
     
