@@ -428,3 +428,7 @@ Problemler:
 -Müşteri memnuniyetini artıracak şekilde kampanya tekliflerini yeniden yapılandırmak
 
 -Test ve analizler yaparak kampanyaların etkinliğini sürekli iyileştirmek (A/B testleri, müşteri anketleri vs.) olabilir.
+
+**Q6 : Çalışan platformun gösterildiği sesli anlatımlı video linki**
+
+Link:https://youtu.be/hUeOpVAILXQ
